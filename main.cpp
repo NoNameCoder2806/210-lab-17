@@ -262,8 +262,22 @@ void deleteNode(Node*& head, int pos)
         index++;
     }
 
-    // 
-    current->next = current->next->next;
+    // Check if the next Node exist
+    if (current->next == nullptr)
+    {
+        // Display an error message
+        cout << " --- Invalid poistion! Cannot delete Node --- " << endl;
+
+        // Exit the function
+        return;
+    }
+
+    // Declare a new Node as the Node to delete
+    Node* temp = current->next;
+
+    // Unlink and delete the Node
+    current->next = temp->next;
+    delete temp;
     
 }
 
