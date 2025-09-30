@@ -10,15 +10,28 @@ using namespace std;
 const int SIZE = 7;  
 
 // Function prototypes
-void output(Node *);
+void addFront(Node* head);                     // Add a Node to the front of the Linked list
+
+void addTail(Node* head);                      // Add a Node to the tail of the Linked list
+
+void insertNode(Node* head, float value);      // Insert a Node into the Linked list
+
+void deleteNode(Node* head, float value);      // Delete a Node from the Linked list
+
+void deleteList(Node* head);                   // Delete the entire Linked list
+
+void output(Node* head);
 
 // Main function
-int main() {
-    Node *head = nullptr;
-    int count = 0;
+int main()
+{
+    // Create a Linked list
+    Node* head = nullptr;      // A Node pointer as the head of the Linked list
+    int count = 0;             // An integer counter of the total Nodes
 
-    // create a linked list of size SIZE with random numbers 0-99
-    for (int i = 0; i < SIZE; i++) {
+    // Create a Linked list of size SIZE with random numbers 0-99
+    for (int i = 0; i < SIZE; i++)
+    {
         int tmp_val = rand() % 100;
         Node *newVal = new Node;
         
@@ -104,9 +117,9 @@ int main() {
 
 /*
     output()
-    Display the values of all the Nodes of the linked list
+    Display the values of all the Nodes of the Linked list
     Arguments: 
-        - head: the head of the linked list
+        - head: the head of the Linked list
     Return: none
 */
 void output(Node * head) {
