@@ -1,7 +1,7 @@
 // COMSC-210 | Lab 17 | Dat Hoang Vien
 // IDE used: Visual Code Studio
 
-// Libraries
+// Libraries and headers
 #include <iostream>
 #include "Node.h"
 using namespace std;
@@ -20,7 +20,7 @@ void deleteNode(Node* head, float value);      // Delete a Node from the Linked 
 
 void deleteList(Node* head);                   // Delete the entire Linked list
 
-void output(Node* head);
+void output(Node* head);                       // Display the values of the Nodes in the Linked list
 
 // Main function
 int main()
@@ -115,14 +115,51 @@ int main()
     return 0;
 }
 
+// Function implementations
+/*
+    addFront()
+    Add a Node to the front of the Linked list
+    Arguments:
+        - head: a Node pointer (the head of the Linked list)
+    Return: none
+*/
+void addFront(Node* head)
+{
+
+}
+
+/*
+    addTail()
+    Add a Node to the tail of the Linked list
+    Arguments:
+        - head: a Node pointer (the head of the Linked list)
+    Return: none
+*/
+void addTail(Node* head)
+{
+
+}
+
+/*
+    insertNode()
+    Insert a Node into the Linked list
+    Arguments:
+        - head: a Node pointer (the head of the Linked list)
+    Return: none    
+*/
+void insertNode(Node* head)
+{
+    
+}
+
 /*
     output()
     Display the values of all the Nodes of the Linked list
     Arguments: 
-        - head: the head of the Linked list
+        - head: a Node pointer (the head of the Linked list)
     Return: none
 */
-void output(Node * head) {
+void output(Node* head) {
     if (!head) {
         cout << "Empty list.\n";
         return;
