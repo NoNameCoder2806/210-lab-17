@@ -126,7 +126,15 @@ int main()
 */
 void addFront(Node* head, float value)
 {
+    // Create a Node and assign the value to it
+    Node* newNode = new Node;
+    newNode->value = value;
 
+    // Let newNode point to the head
+    newNode->next = head;
+
+    // Let the head point to newNode
+    head = newNode;
 }
 
 /*
@@ -188,16 +196,34 @@ void deleteList(Node* head)
         - head: a Node pointer (the head of the Linked list)
     Return: none
 */
-void output(Node* head) {
-    if (!head) {
-        cout << "Empty list.\n";
+void output(Node* head)
+{
+    // If the Linked list is empty
+    if (!head)
+    {
+        // Display a message
+        cout << " --- Empty list. --- " << endl;
+
+        // Exit the function
         return;
     }
+
+    // An int counter for the number of Nodes
     int count = 1;
-    Node * current = head;
-    while (current) {
+
+    // Declare a current Node and let it be the head
+    Node* current = head;
+
+    // Iterate through the Linked list until we reach a nullptr
+    while (current)
+    {
+        // Display the value of the Nodes
         cout << "[" << count++ << "] " << current->value << endl;
+
+        // Move to the next Node
         current = current->next;
     }
+
+    // Enter a new line
     cout << endl;
 }
