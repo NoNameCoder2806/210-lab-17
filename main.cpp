@@ -10,17 +10,17 @@ using namespace std;
 const int SIZE = 7;  
 
 // Function prototypes
-void addFront(Node* head);                     // Add a Node to the front of the Linked list
+void addFront(Node* head, float value);               // Add a Node to the front of the Linked list
 
-void addTail(Node* head);                      // Add a Node to the tail of the Linked list
+void addTail(Node* head, float value);                // Add a Node to the tail of the Linked list
 
-void insertNode(Node* head, float value);      // Insert a Node into the Linked list
+void insertNode(Node* head, float value, int pos);    // Insert a Node into the Linked list
 
-void deleteNode(Node* head, float value);      // Delete a Node from the Linked list
+void deleteNode(Node* head, int pos);                 // Delete a Node from the Linked list
 
-void deleteList(Node* head);                   // Delete the entire Linked list
+void deleteList(Node* head);                          // Delete the entire Linked list
 
-void output(Node* head);                       // Display the values of the Nodes in the Linked list
+void output(Node* head);                              // Display the values of the Nodes in the Linked list
 
 // Main function
 int main()
@@ -121,9 +121,10 @@ int main()
     Add a Node to the front of the Linked list
     Arguments:
         - head: a Node pointer (the head of the Linked list)
+        - value: the value of the Node to insert
     Return: none
 */
-void addFront(Node* head)
+void addFront(Node* head, float value)
 {
 
 }
@@ -133,9 +134,10 @@ void addFront(Node* head)
     Add a Node to the tail of the Linked list
     Arguments:
         - head: a Node pointer (the head of the Linked list)
+        - value: the value of the Node to insert
     Return: none
 */
-void addTail(Node* head)
+void addTail(Node* head, float value)
 {
 
 }
@@ -145,11 +147,38 @@ void addTail(Node* head)
     Insert a Node into the Linked list
     Arguments:
         - head: a Node pointer (the head of the Linked list)
+        - value: the value of the Node to insert
+        - pos: the position of the Node to insert
     Return: none    
 */
-void insertNode(Node* head)
+void insertNode(Node* head, float value, int pos)
 {
-    
+
+}
+
+/*
+    deleteNode()
+    Delete a Node from the Linked list
+    Arguments:
+        - head: a Node pointer (the head of the Linked list)
+        - pos: the position of the Node to delete
+    Return: none
+*/
+void deleteNode(Node* head, int pos)
+{
+
+}
+
+/*
+    deleteList()
+    Delete the whole Linked list
+    Arguments:
+        - head: a Node pointer (the head of the Linked list)
+    Return: none
+*/
+void deleteList(Node* head)
+{
+
 }
 
 /*
