@@ -246,6 +246,20 @@ void deleteNode(Node*& head, int pos)
         return;
     }
 
+    // Check whether we're deleting the first Node (the head)
+    if (pos == 0)
+    {
+        // Declare a new Node as the Node to delete
+        Node* temp = head;
+
+        // Unlink and delete the first Node
+        head = head->next;
+        delete temp;
+
+        // Exit the function
+        return;
+    }
+
     // Declare an integer counter
     int index = 0;
 
@@ -278,7 +292,6 @@ void deleteNode(Node*& head, int pos)
     // Unlink and delete the Node
     current->next = temp->next;
     delete temp;
-    
 }
 
 /*
