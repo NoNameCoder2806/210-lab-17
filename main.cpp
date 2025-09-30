@@ -10,17 +10,17 @@ using namespace std;
 const int SIZE = 7;  
 
 // Function prototypes
-void addFront(Node* head, float value);               // Add a Node to the front of the Linked list
+void addFront(Node*& head, float value);               // Add a Node to the front of the Linked list
 
-void addTail(Node* head, float value);                // Add a Node to the tail of the Linked list
+void addTail(Node*& head, float value);                // Add a Node to the tail of the Linked list
 
-void insertNode(Node* head, float value, int pos);    // Insert a Node into the Linked list
+void insertNode(Node*& head, float value, int pos);    // Insert a Node into the Linked list
 
-void deleteNode(Node* head, int pos);                 // Delete a Node from the Linked list
+void deleteNode(Node*& head, int pos);                 // Delete a Node from the Linked list
 
-void deleteList(Node* head);                          // Delete the entire Linked list
+void deleteList(Node*& head);                          // Delete the entire Linked list
 
-void output(Node* head);                              // Display the values of the Nodes in the Linked list
+void output(Node* head);                               // Display the values of the Nodes in the Linked list
 
 // Main function
 int main()
@@ -124,7 +124,7 @@ int main()
         - value: the value of the Node to insert
     Return: none
 */
-void addFront(Node* head, float value)
+void addFront(Node*& head, float value)
 {
     // Create a Node and assign the value to it
     Node* newNode = new Node;
@@ -141,25 +141,50 @@ void addFront(Node* head, float value)
     addTail()
     Add a Node to the tail of the Linked list
     Arguments:
-        - head: a Node pointer (the head of the Linked list)
+        - head: a reference to a Node pointer (the head of the Linked list)
         - value: the value of the Node to insert
     Return: none
 */
-void addTail(Node* head, float value)
+void addTail(Node*& head, float value)
 {
+    // Create a new Node and assign the value to it
+    Node* newNode = new Node;
+    newNode->value = value;
+    newNode->next = nullptr;
 
+    // Check whether the Linked list is empty
+    if (head == nullptr)
+    {
+        // Assign the newNode to the head
+        head = newNode;
+
+        return;      // Exit the function
+    }
+
+    // Create a Node and let it point to the head
+    Node* current = head;
+
+    // Iterate through the Linked list until we reach the last Node
+    while(current->next)
+    {
+        // Let it point to the next Node in the Linked list
+        current = current->next;
+    }
+
+    // Add newNode to the tail
+    current-> next = newNode;
 }
 
 /*
     insertNode()
     Insert a Node into the Linked list
     Arguments:
-        - head: a Node pointer (the head of the Linked list)
+        - head: a reference to a Node pointer (the head of the Linked list)
         - value: the value of the Node to insert
         - pos: the position of the Node to insert
     Return: none    
 */
-void insertNode(Node* head, float value, int pos)
+void insertNode(Node*& head, float value, int pos)
 {
 
 }
@@ -168,11 +193,11 @@ void insertNode(Node* head, float value, int pos)
     deleteNode()
     Delete a Node from the Linked list
     Arguments:
-        - head: a Node pointer (the head of the Linked list)
+        - head: a reference to a Node pointer (the head of the Linked list)
         - pos: the position of the Node to delete
     Return: none
 */
-void deleteNode(Node* head, int pos)
+void deleteNode(Node*& head, int pos)
 {
 
 }
@@ -181,10 +206,10 @@ void deleteNode(Node* head, int pos)
     deleteList()
     Delete the whole Linked list
     Arguments:
-        - head: a Node pointer (the head of the Linked list)
+        - head: a reference to a Node pointer (the head of the Linked list)
     Return: none
 */
-void deleteList(Node* head)
+void deleteList(Node*& head)
 {
 
 }
@@ -204,8 +229,7 @@ void output(Node* head)
         // Display a message
         cout << " --- Empty list. --- " << endl;
 
-        // Exit the function
-        return;
+        return;      // Exit the function
     }
 
     // An int counter for the number of Nodes
