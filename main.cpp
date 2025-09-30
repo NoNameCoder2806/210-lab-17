@@ -129,6 +129,7 @@ void addFront(Node*& head, float value)
     // Create a Node and assign the value to it
     Node* newNode = new Node;
     newNode->value = value;
+    newNode->next = nullptr;
 
     // Let newNode point to the head
     newNode->next = head;
@@ -186,7 +187,43 @@ void addTail(Node*& head, float value)
 */
 void insertNode(Node*& head, float value, int pos)
 {
+    // Create a new Node and assign the value to it
+    Node* newNode = new Node;
+    newNode->value = value;
+    newNode->next = nullptr;
 
+    // Check whether the Linked list is empty or the position is 0
+    if (head == nullptr || pos == 0)
+    {
+        // Let newNode point to the head
+        newNode->next = head;
+
+        // Let the head point to newNode
+        head = newNode;
+
+        // Exit the function
+        return;
+    }
+
+    // Declare an integer counter
+    int count = 1;
+
+    // Create a Node and let it point to the head
+    Node* current = head;
+
+    // Iterate through the Linked list until we reach the last Node
+    while(current)
+    {
+        // If we have reached the position
+        if (count == pos)
+        {
+            newNode->next = current->next;
+            current = newNode;
+        }
+
+        // Move to the next Node
+        current = current->next;
+    }
 }
 
 /*
