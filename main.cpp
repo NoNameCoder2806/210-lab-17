@@ -1,15 +1,18 @@
+// COMSC-210 | Lab 17 | Dat Hoang Vien
+// IDE used: Visual Code Studio
+
+// Libraries
 #include <iostream>
+#include "Node.h"
 using namespace std;
 
+// Constants
 const int SIZE = 7;  
 
-struct Node {
-    float value;
-    Node *next;
-};
-
+// Function prototypes
 void output(Node *);
 
+// Main function
 int main() {
     Node *head = nullptr;
     int count = 0;
@@ -99,13 +102,20 @@ int main() {
     return 0;
 }
 
-void output(Node * hd) {
-    if (!hd) {
+/*
+    output()
+    Display the values of all the Nodes of the linked list
+    Arguments: 
+        - head: the head of the linked list
+    Return: none
+*/
+void output(Node * head) {
+    if (!head) {
         cout << "Empty list.\n";
         return;
     }
     int count = 1;
-    Node * current = hd;
+    Node * current = head;
     while (current) {
         cout << "[" << count++ << "] " << current->value << endl;
         current = current->next;
