@@ -206,24 +206,24 @@ void insertNode(Node*& head, float value, int pos)
     }
 
     // Declare an integer counter
-    int count = 1;
+    int index = 0;
 
     // Create a Node and let it point to the head
     Node* current = head;
 
-    // Iterate through the Linked list until we reach the last Node
-    while(current)
+    // Iterate through the Linked list until we reach the last Node or the position to insert
+    while(current && index < pos - 1)
     {
-        // If we have reached the position
-        if (count == pos)
-        {
-            newNode->next = current->next;
-            current = newNode;
-        }
-
         // Move to the next Node
         current = current->next;
+
+        // Increment the index
+        index++;
     }
+
+    // Add newNode to the Linked list
+    newNode->next = current->next;
+    current->next = newNode;
 }
 
 /*
@@ -236,7 +236,35 @@ void insertNode(Node*& head, float value, int pos)
 */
 void deleteNode(Node*& head, int pos)
 {
+    // Check whether the Linked list is empty
+    if (head == nullptr)
+    {
+        // Display an error message
+        cout << " --- The Linked list is empty! --- " << endl;
+        
+        // Exit the function
+        return;
+    }
 
+    // Declare an integer counter
+    int index = 0;
+
+    // Create a Node and let it point to the head
+    Node* current = head;
+
+    // Iterate through the Linked list until we reach the last Node or the position to insert
+    while (current && index < pos - 1)
+    {
+        // Move to the next Node
+        current = current->next;
+
+        // Increment the index
+        index++;
+    }
+
+    // 
+    current->next = current->next->next;
+    
 }
 
 /*
