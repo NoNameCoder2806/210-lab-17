@@ -303,7 +303,18 @@ void deleteNode(Node*& head, int pos)
 */
 void deleteList(Node*& head)
 {
+    // Iterate through the Linked list
+    while (head)
+    {
+        // Create a Node and let it point to the head
+        Node* current = head;
 
+        // Move on to the next Node
+        head = head->next;
+
+        // Delete the current Node
+        delete current;
+    }
 }
 
 /*
