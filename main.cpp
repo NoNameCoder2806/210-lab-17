@@ -251,7 +251,6 @@ int main()
     Display the menu of operations the user can implement on the Linked list
     Arguments: none
     Return: none
-
 */
 void displayMenu()
 {
