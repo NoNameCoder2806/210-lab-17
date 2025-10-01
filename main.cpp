@@ -44,6 +44,17 @@ int main()
         cout << " - Your choice: ";
         cin >> choice;
 
+        // Check whether the choice was valid
+        while (choice < 1 || choice > 7)
+        {
+            // Display an error message
+            cout << " --- Error! Your choice must be between 1 and 7! --- " << endl;
+            
+            // Prompt the user to enter a new choice
+            cout << "Please enter a new choice: ";
+            cin >> choice;
+        }
+
         // Perform the operations based on the user's choice
         switch (choice)
         {
@@ -73,13 +84,83 @@ int main()
                 cout << "Enter your Node's value: ";
                 cin >> value;
 
-                // Call the addFront() function
+                // Call the addTail() function
                 addTail(head, value);
 
                 break;
             }
 
             // Insert a Node into the Linked list
+            case 3:
+            {
+                // Declare a float variable to store the user's input value 
+                float value = 0;
+
+                // Prompt the user to enter the value
+                cout << "Enter your Node's value: ";
+                cin >> value;
+
+                // Declare an integer variable to store the position
+                int pos = -1;
+
+                // Prompt the user to enter the position to insert
+                cout << "Enter the position to insert: ";
+                cin >> pos;
+
+                // Check whether the entered position was valid (positive) or not
+                while (pos < 0)
+                {
+                    // Display an error message
+                    cout << " --- Invalid! Position cannot be negative! --- " << endl;
+                    
+                    // Prompt the user to enter a new position
+                    cout << "Please enter a valid position (>= 0): ";
+                    cin >> pos;
+                }
+
+                // Call the insertNode() function
+                insertNode(head, value, pos);
+
+                break;
+            }
+
+            // Delete a Node from the Linked list
+            case 4:
+            {
+                // Declare an integer variable to store the position
+                int pos = -1;
+
+                // Prompt the user to enter the position to delete
+                cout << "Enter the position to delete: ";
+                cin >> pos;
+
+                // Check whether the entered position was valid (positive) or not
+                while (pos < 0)
+                {
+                    // Display an error message
+                    cout << " --- Invalid! Position cannot be negative! --- " << endl;
+                    
+                    // Prompt the user to enter a new position
+                    cout << "Please enter a valid position (>= 0): ";
+                    cin >> pos;
+                }
+
+                // Call the deleteNode() function
+                deleteNode(head, pos);
+
+                break;
+            }
+
+            // Delete the entire Linked list
+            case 5:
+            {
+                // Ask the user to verify their choice
+                cout << "Are you sure you want to delete the entire Linked list (Y/N): ";
+                // Call the deleteList() function
+                deleteList(head);
+
+                break;
+            }
         }
     }
 
