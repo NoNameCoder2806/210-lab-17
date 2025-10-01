@@ -27,9 +27,8 @@ void displayList(Node* head);                          // Display all the values
 // Main function
 int main()
 {
-    // Create a Linked list
-    Node* head = nullptr;      // A Node pointer as the head of the Linked list
-    int count = 0;             // An integer counter of the total Nodes
+    // Declare a Node pointer as the head of the Linked list
+    Node* head = nullptr;
 
     // Create a loop and allow the user to perform Linked list operations
     while (true)
@@ -74,6 +73,9 @@ int main()
                 // Call the addFront() function
                 addFront(head, value);
 
+                // Enter a new line
+                cout << endl;
+
                 break;
             }
 
@@ -90,6 +92,9 @@ int main()
 
                 // Call the addTail() function
                 addTail(head, value);
+                
+                // Enter a new line
+                cout << endl;
 
                 break;
             }
@@ -126,6 +131,9 @@ int main()
 
                 // Call the insertNode() function
                 insertNode(head, value, pos);
+                
+                // Enter a new line
+                cout << endl;
 
                 break;
             }
@@ -155,6 +163,9 @@ int main()
 
                 // Call the deleteNode() function
                 deleteNode(head, pos);
+                
+                // Enter a new line
+                cout << endl;
 
                 break;
             }
@@ -196,6 +207,9 @@ int main()
                     // Display a message
                     cout << " --- Operation canceled! Linked list not deleted! --- " << endl;
                 }
+                
+                // Enter a new line
+                cout << endl;
 
                 break;
             }
@@ -205,6 +219,9 @@ int main()
             {
                 // Call the displayList() function
                 displayList(head);
+                
+                // Enter a new line
+                cout << endl;
 
                 break;
             }
@@ -216,6 +233,10 @@ int main()
                 deleteList(head);
 
                 // Display a message
+                cout << "Exiting... Thank you for using the program!" << endl;
+
+                // Exit the main() function
+                return 0;
             }
         }
     }
@@ -234,7 +255,7 @@ int main()
 void displayMenu()
 {
     // Display the whole menu
-    cout << " --- Linked list operations --- " << endl;
+    cout << " --- Linked list operations menu --- " << endl;
     cout << "1. Add a Node to the front" << endl;
     cout << "2. Add a Node to the tail" << endl;
     cout << "3. Insert a Node at a position" << endl;
@@ -242,7 +263,7 @@ void displayMenu()
     cout << "5. Delete the entire Linked list" << endl;
     cout << "6. Display the Linked list" << endl;
     cout << "7. Exit the program" << endl;
-    cout << " -------------------------- --- " << endl;
+    cout << " ----------------------------------- " << endl;
 }
 
 /*
@@ -350,6 +371,18 @@ void insertNode(Node*& head, float value, int pos)
         index++;
     }
 
+    // Check whether the current Node is a nullptr or not
+    if (current == nullptr)
+    {
+        // Display an error message
+        cout << " --- Invalid position! Cannot insert Node --- " << endl;
+
+        // Delete the newNode
+        delete newNode;
+
+        return;      // Exit the program
+    }
+
     // Add newNode to the Linked list
     newNode->next = current->next;
     current->next = newNode;
@@ -409,7 +442,7 @@ void deleteNode(Node*& head, int pos)
     if (current->next == nullptr)
     {
         // Display an error message
-        cout << " --- Invalid poistion! Cannot delete Node --- " << endl;
+        cout << " --- Invalid position! Cannot delete Node --- " << endl;
 
         // Exit the function
         return;
@@ -479,7 +512,4 @@ void displayList(Node* head)
         // Move to the next Node
         current = current->next;
     }
-
-    // Enter a new line
-    cout << endl;
 }
