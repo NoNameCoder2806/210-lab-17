@@ -1,10 +1,14 @@
 // COMSC-210 | Lab 17 | Dat Hoang Vien
-// IDE used: Visual Code Studio
+// IDE used: Visual Studio Code
 
 // Libraries and headers
 #include <iostream>
 #include "Node.h"
 using namespace std;
+
+// Constants
+const int MIN_MENU_CHOICE = 1;
+const int MAX_MENU_CHOICE = 7;
 
 // Function prototypes
 void displayMenu();                                    // Display the menu of operations
@@ -42,7 +46,7 @@ int main()
         cin.ignore(1000, 10);
 
         // Check whether the choice was valid
-        while (choice < 1 || choice > 7)
+        while (choice < MIN_MENU_CHOICE || choice > MAX_MENU_CHOICE)
         {
             // Display an error message
             cout << " --- Error! Your choice must be between 1 and 7! --- " << endl;
@@ -226,7 +230,7 @@ int main()
             // Exit the program
             case 7:
             {
-                // Delete the Linked list before exiting
+                // Delete the entire Linked list before exiting
                 deleteList(head);
 
                 // Display a message
@@ -372,12 +376,12 @@ void insertNode(Node*& head, float value, int pos)
     if (current == nullptr)
     {
         // Display an error message
-        cout << " --- Invalid position! Cannot insert Node --- " << endl;
+        cout << " --- Invalid position! Cannot insert Node! --- " << endl;
 
         // Delete the newNode
         delete newNode;
 
-        return;      // Exit the program
+        return;      // Exit the function
     }
 
     // Add newNode to the Linked list
@@ -489,7 +493,7 @@ void displayList(Node* head)
     if (!head)
     {
         // Display a message
-        cout << " --- Empty list. --- " << endl;
+        cout << " --- Empty list! --- " << endl;
 
         return;      // Exit the function
     }
@@ -503,7 +507,7 @@ void displayList(Node* head)
     // Iterate through the Linked list until we reach a nullptr
     while (current)
     {
-        // Display the value of the Nodes
+        // Display Nodes and their positions starting from [0]
         cout << "[" << count << "] " << current->value << endl;
         count++;      // Increment the counter;
 
