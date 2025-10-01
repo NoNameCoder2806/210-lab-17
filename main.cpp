@@ -22,7 +22,7 @@ void deleteNode(Node*& head, int pos);                 // Delete a Node from the
 
 void deleteList(Node*& head);                          // Delete the entire Linked list
 
-void output(Node* head);                               // Display the values of the Nodes in the Linked list
+void displayList(Node* head);                          // Display all the values of the Nodes in the Linked list
 
 // Main function
 int main()
@@ -43,6 +43,7 @@ int main()
         // Prompt the user to enter their choice
         cout << " - Your choice: ";
         cin >> choice;
+        cin.ignore(1000, 10);
 
         // Check whether the choice was valid
         while (choice < 1 || choice > 7)
@@ -53,6 +54,7 @@ int main()
             // Prompt the user to enter a new choice
             cout << "Please enter a new choice: ";
             cin >> choice;
+            cin.ignore(1000, 10);
         }
 
         // Perform the operations based on the user's choice
@@ -67,6 +69,7 @@ int main()
                 // Prompt the user to enter the value
                 cout << "Enter your Node's value: ";
                 cin >> value;
+                cin.ignore(1000, 10);
 
                 // Call the addFront() function
                 addFront(head, value);
@@ -83,6 +86,7 @@ int main()
                 // Prompt the user to enter the value
                 cout << "Enter your Node's value: ";
                 cin >> value;
+                cin.ignore(1000, 10);
 
                 // Call the addTail() function
                 addTail(head, value);
@@ -106,6 +110,7 @@ int main()
                 // Prompt the user to enter the position to insert
                 cout << "Enter the position to insert: ";
                 cin >> pos;
+                cin.ignore(1000, 10);
 
                 // Check whether the entered position was valid (positive) or not
                 while (pos < 0)
@@ -116,6 +121,7 @@ int main()
                     // Prompt the user to enter a new position
                     cout << "Please enter a valid position (>= 0): ";
                     cin >> pos;
+                    cin.ignore(1000, 10);
                 }
 
                 // Call the insertNode() function
@@ -133,6 +139,7 @@ int main()
                 // Prompt the user to enter the position to delete
                 cout << "Enter the position to delete: ";
                 cin >> pos;
+                cin.ignore(1000, 10);
 
                 // Check whether the entered position was valid (positive) or not
                 while (pos < 0)
@@ -143,6 +150,7 @@ int main()
                     // Prompt the user to enter a new position
                     cout << "Please enter a valid position (>= 0): ";
                     cin >> pos;
+                    cin.ignore(1000, 10);
                 }
 
                 // Call the deleteNode() function
@@ -154,12 +162,60 @@ int main()
             // Delete the entire Linked list
             case 5:
             {
+                // Declare a char variable to store user's choice
+                char c;
+
                 // Ask the user to verify their choice
-                cout << "Are you sure you want to delete the entire Linked list (Y/N): ";
-                // Call the deleteList() function
-                deleteList(head);
+                cout << "Deleting the Linked list. Are you sure (Y/N): ";
+                cin >> c;
+                cin.ignore(1000, 10);
+
+                // Check whether the choice was valid
+                while (toupper(c) != 'N' && toupper(c) != 'Y')
+                {
+                    // Display an error message
+                    cout << " --- Error! Your choice must be 'Y' or 'N'! --- " << endl;
+
+                    // Prompt the user to enter a new choice
+                    cout << "Please enter a new choice (Y/N): ";
+                    cin >> c;
+                    cin.ignore(1000, 10);
+                }
+
+                // Delete the entire Linked list or break out of the case
+                if (toupper(c) == 'Y')
+                {
+                    // Call the deleteList() function
+                    deleteList(head);
+
+                    // Display a message
+                    cout << " --- Linked list deleted! --- " << endl;
+                }
+                else
+                {
+                    // Display a message
+                    cout << " --- Operation canceled! Linked list not deleted! --- " << endl;
+                }
 
                 break;
+            }
+
+            // Display the Linked list
+            case 6:
+            {
+                // Call the displayList() function
+                displayList(head);
+
+                break;
+            }
+
+            // Exit the program
+            case 7:
+            {
+                // Delete the Linked list before exiting
+                deleteList(head);
+
+                // Display a message
             }
         }
     }
@@ -391,13 +447,13 @@ void deleteList(Node*& head)
 }
 
 /*
-    output()
-    Display the values of all the Nodes of the Linked list
+    displayList()
+    Display all the values of all the Nodes in the Linked list
     Arguments: 
         - head: a Node pointer (the head of the Linked list)
     Return: none
 */
-void output(Node* head)
+void displayList(Node* head)
 {
     // If the Linked list is empty
     if (!head)
