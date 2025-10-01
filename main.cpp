@@ -6,9 +6,6 @@
 #include "Node.h"
 using namespace std;
 
-// Constants
-const int SIZE = 7;  
-
 // Function prototypes
 void displayMenu();                                    // Display the menu of operations
 
@@ -438,8 +435,8 @@ void deleteNode(Node*& head, int pos)
         index++;
     }
 
-    // Check if the next Node exist
-    if (current->next == nullptr)
+    // Check if the current and the next Node exist
+    if (current == nullptr || current->next == nullptr)
     {
         // Display an error message
         cout << " --- Invalid position! Cannot delete Node --- " << endl;
@@ -498,7 +495,7 @@ void displayList(Node* head)
     }
 
     // An int counter for the number of Nodes
-    int count = 1;
+    int count = 0;
 
     // Declare a current Node and let it be the head
     Node* current = head;
@@ -507,7 +504,8 @@ void displayList(Node* head)
     while (current)
     {
         // Display the value of the Nodes
-        cout << "[" << count++ << "] " << current->value << endl;
+        cout << "[" << count << "] " << current->value << endl;
+        count++;      // Increment the counter;
 
         // Move to the next Node
         current = current->next;
