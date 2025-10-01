@@ -31,88 +31,57 @@ int main()
     Node* head = nullptr;      // A Node pointer as the head of the Linked list
     int count = 0;             // An integer counter of the total Nodes
 
-    // Create a Linked list of size SIZE with random numbers 0-99
-    for (int i = 0; i < SIZE; i++)
+    // Create a loop and allow the user to perform Linked list operations
+    while (true)
     {
-        int tmp_val = rand() % 100;
-        Node *newVal = new Node;
-        
-        // adds node at head
-        if (!head) { // if this is the first node, it's the new head
-            head = newVal;
-            newVal->next = nullptr;
-            newVal->value = tmp_val;
-        }
-        else { // its a second or subsequent node; place at the head
-            newVal->next = head;
-            newVal->value = tmp_val;
-            head = newVal;
+        // Display the menu of operations
+        displayMenu();
+
+        // Declare an integer variable to store the user's choice
+        int choice = 0;
+
+        // Prompt the user to enter their choice
+        cout << " - Your choice: ";
+        cin >> choice;
+
+        // Perform the operations based on the user's choice
+        switch (choice)
+        {
+            // Add a Node to the front
+            case 1:
+            {
+                // Declare a float variable to store the user's input value 
+                float value = 0;
+
+                // Prompt the user to enter the value
+                cout << "Enter your Node's value: ";
+                cin >> value;
+
+                // Call the addFront() function
+                addFront(head, value);
+
+                break;
+            }
+
+            // Add a Node to the tail
+            case 2:
+            {
+                // Declare a float variable to store the user's input value 
+                float value = 0;
+
+                // Prompt the user to enter the value
+                cout << "Enter your Node's value: ";
+                cin >> value;
+
+                // Call the addFront() function
+                addTail(head, value);
+
+                break;
+            }
+
+            // Insert a Node into the Linked list
         }
     }
-    output(head);
-
-    // deleting a node
-    Node * current = head;
-    cout << "Which node to delete? " << endl;
-    output(head);
-    int entry;
-    cout << "Choice --> ";
-    cin >> entry;
-
-    // traverse that many times and delete that node
-    current = head;
-    Node *prev = head;
-    for (int i = 0; i < (entry-1); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    // at this point, delete current and reroute pointers
-    if (current) {  // checks for current to be valid before deleting the node
-        prev->next = current->next;
-        delete current;
-        current = nullptr;
-    }
-    output(head);
-
-    // insert a node
-    current = head;
-    cout << "After which node to insert 10000? " << endl;
-    count = 1;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
-    cout << "Choice --> ";
-    cin >> entry;
-
-    current = head;
-    prev = head;
-    for (int i = 0; i < (entry); i++)
-        if (i == 0)
-            current = current->next;
-        else {
-            current = current->next;
-            prev = prev->next;
-        }
-    //at this point, insert a node between prev and current
-    Node * newnode = new Node;
-    newnode->value = 10000;
-    newnode->next = current;
-    prev->next = newnode;
-    output(head);
-
-    // deleting the linked list
-    current = head;
-    while (current) {
-        head = current->next;
-        delete current;
-        current = head;
-    }
-    head = nullptr;
-    output(head);
 
     return 0;
 }
@@ -136,10 +105,7 @@ void displayMenu()
     cout << "5. Delete the entire Linked list" << endl;
     cout << "6. Display the Linked list" << endl;
     cout << "7. Exit the program" << endl;
-    cout << " --- Linked list operations --- " << endl;
-
-    // Enter a new line
-    cout << endl;
+    cout << " -------------------------- --- " << endl;
 }
 
 /*
