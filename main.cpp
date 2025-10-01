@@ -10,6 +10,8 @@ using namespace std;
 const int SIZE = 7;  
 
 // Function prototypes
+void displayMenu();                                    // Display the menu of operations
+
 void addFront(Node*& head, float value);               // Add a Node to the front of the Linked list
 
 void addTail(Node*& head, float value);                // Add a Node to the tail of the Linked list
@@ -116,6 +118,30 @@ int main()
 }
 
 // Function implementations
+/*
+    displayMenu()
+    Display the menu of operations the user can implement on the Linked list
+    Arguments: none
+    Return: none
+
+*/
+void displayMenu()
+{
+    // Display the whole menu
+    cout << " --- Linked list operations --- " << endl;
+    cout << "1. Add a Node to the front" << endl;
+    cout << "2. Add a Node to the tail" << endl;
+    cout << "3. Insert a Node at a position" << endl;
+    cout << "4. Delete a Node at a position" << endl;
+    cout << "5. Delete the entire Linked list" << endl;
+    cout << "6. Display the Linked list" << endl;
+    cout << "7. Exit the program" << endl;
+    cout << " --- Linked list operations --- " << endl;
+
+    // Enter a new line
+    cout << endl;
+}
+
 /*
     addFront()
     Add a Node to the front of the Linked list
